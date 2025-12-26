@@ -4,63 +4,6 @@ Tasks organized by priority and workstream, aligned with the 12-month execution 
 
 ---
 
-## Immediate / High Priority
-
-### Data Infrastructure (M1-M3: Data Rails)
-
-- [ ] **Define data schemas**
-  - [ ] Patient Event Stream schema (temporal)
-  - [ ] Patient Snapshot schema (fixed period)
-  - [ ] Claims data format specification
-  - [ ] EHR data format specification
-  - Technical owner: Data/ML Team
-
-- [ ] **Data normalization pipeline**
-  - [ ] Design ETL architecture
-  - [ ] Implement claims data parser
-  - [ ] Implement EHR data parser
-  - [ ] Build data validation layer
-  - Technical owner: Data/ML Team
-
-- [ ] **Synthetic data generation**
-  - [ ] Create realistic synthetic Golden Dataset (200K+ patients)
-  - [ ] Create synthetic partner dataset (5-20K patients)
-  - [ ] Ensure data includes: symptoms, medications, labs, utilization patterns
-  - Technical owner: Data/ML Team
-
-### ML Model Development (M3-M6: ML Risk Engine v1)
-
-- [ ] **Production code structure**
-  - [ ] Design package architecture for `src/careosml/`
-  - [ ] Create module structure (data, models, features, evaluation, utils)
-  - [ ] Set up logging and configuration management
-  - Technical owner: Data/ML Team
-
-- [ ] **Foundation model implementation**
-  - [ ] Port sandbox POC to production code
-  - [ ] Implement Platt scaling component
-  - [ ] Implement Dirichlet aggregation component
-  - [ ] Optimize PyMC sampling performance
-  - Technical owner: Data/ML Team
-
-- [ ] **Semi-supervised learning**
-  - [ ] Implement masked array handling for unlabeled data
-  - [ ] Validate imputation approach for missing labels
-  - [ ] Test on synthetic data with varying labeled/unlabeled ratios
-  - Technical owner: Data/ML Team
-
-- [ ] **Uncertainty quantification**
-  - [ ] Implement posterior distribution extraction
-  - [ ] Calculate credible intervals (95% CI)
-  - [ ] Create confidence calibration metrics
-  - [ ] Validate that high confidence → high accuracy
-  - Technical owner: Data/ML Team
-
-- [ ] **Local calibration**
-  - [ ] Design transfer learning approach for partner data
-  - [ ] Implement site-specific adjustment layer
-  - [ ] Test with simulated site differences (documentation styles, coding practices)
-  - Technical owner: Data/ML Team
 
 ### Testing & Validation
 
@@ -84,27 +27,6 @@ Tasks organized by priority and workstream, aligned with the 12-month execution 
 
 ---
 
-## Medium Priority
-
-### Clinical Decision Support (M3-M9: LLM Care Plan Composer v1)
-
-- [ ] **Risk stratification**
-  - [ ] Implement patient profile classification (High/Low confidence)
-  - [ ] Generate recommended actions based on posterior distribution
-  - [ ] Create evidence summary for each prediction
-  - Technical owner: Clinical Core + Data/ML Team
-
-- [ ] **Worklist generation**
-  - [ ] Sort patients by probability × confidence
-  - [ ] Filter by actionability threshold
-  - [ ] Generate precision-optimized output format
-  - Technical owner: Clinical Core + Data/ML Team
-
-- [ ] **LLM integration** (if applicable)
-  - [ ] Design care plan generation prompts
-  - [ ] Integrate with LLM API
-  - [ ] Validate clinical accuracy of generated plans
-  - Technical owner: Clinical Core
 
 ### Documentation
 
@@ -189,11 +111,29 @@ Tasks organized by priority and workstream, aligned with the 12-month execution 
 ---
 
 ## Notes
-
-- Tasks aligned with 12-month execution plan from `docs/CareOS-ML-Overview.md`
-- M1-M3 focus: Data Rails
-- M3-M6 focus: ML Risk Engine v1
-- M4-M6: Pilot with 450 members
-- M7-M12: Scale to 2,000 members
 - This backlog should be updated regularly as work progresses
 - Use `docs/progress.md` to log completed work each session
+
+## Future work
+### Data Infrastructure (M1-M3: Data Rails)
+
+- [ ] **Define data schemas**
+  - [ ] Patient Event Stream schema
+  - [ ] Patient Snapshot schema
+  - [ ] Claims data format specification
+  - [ ] EHR data format specification
+  - Technical owner: Data/ML Team
+
+- [ ] **Data normalization pipeline**
+  - [ ] Design ETL architecture
+  - [ ] Implement claims data parser
+  - [ ] Implement EHR data parser
+  - [ ] Build data validation layer
+  - Technical owner: Data/ML Team
+
+- [ ] **Synthetic data generation**
+  - [ ] Create realistic synthetic Golden Dataset (200K+ patients)
+  - [ ] Create synthetic partner dataset (5-20K patients)
+  - [ ] Ensure data includes: symptoms, medications, labs, utilization patterns
+  - Technical owner: Data/ML Team
+
